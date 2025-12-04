@@ -1,47 +1,18 @@
-# toml-cli
+# mute-mic
 
-![Build](https://github.com/mrijken/toml-cli/workflows/CI/badge.svg)
-
-Command line interface for toml files.
-
-This can be usefull for getting or setting parts of a toml file without an editor.
-Which can be convinient when values have to be read by a script for example in
-continuous development steps.
+Windows does not have a command to globally (un)mute your microphone which can be mapped
+from a key. `mute-mic` solves that problem.
 
 ## Install
 
-Install via
+[UV](https://docs.astral.sh/uv/getting-started/installation/) makes it easy to install command line programs made in Python.
 
-`pip install toml-cli`
+With UV, you can install `mute-mic`:
 
-or
+`uv tool install mute-mic`
 
-`uv tool install toml-cli`
+## Usage
 
-## Get a value
-
-`toml get --toml-path pyproject.toml tool.poetry.name`
-
-`toml get --toml-path pyproject.toml tool.poetry.authors[0]`
-
-`toml get --toml-path pyproject.toml tool.poetry.name --default marc`
-
-## Search with [JMESPath](https://jmespath.org/)
-
-`toml search --toml-path pyproject.toml tool.uv.index[*].name`
-
-## Set a value
-
-`toml set --toml-path pyproject.toml tool.poetry.version 0.2.0`
-
-`toml set --toml-path pyproject.toml tool.poetry.authors[0] "Marc Rijken <marc@rijken.org>"`
-
-When the index exists, the item is changed.  Otherwise, the item will be added to the list.
-
-## Add a section
-
-`toml add_section --toml-path pyproject.toml tool.poetry.new_section`
-
-## Unset a value
-
-`toml unset --toml-path pyproject.toml tool.poetry.version`
+From the command line, you can call `mute-mic` to mute or unmute your microphone.
+You can map a key to this program with ie Powertoys (get the path to the command via `where mute-mic` and
+choose Hidden as visibility)
